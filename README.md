@@ -1,5 +1,5 @@
 # bx01
-My first attempt at building a hand-wired, custom, 3d printed gaming keyboard/macro pad
+My first attempt at building a hand-wired, custom, 3d printed gaming keyboard/macro pad with hotswap 
 
 The layout, case and plate have all been designed by me. The keyboard runs on an Arduino Pro Micro running custom QMK firmware and has VIA support. The current layout has 3 layers, 2 of which are mostly empty, but I plan on adding more later. I also don't have any lighting yet, but I want to add more later. 
 
