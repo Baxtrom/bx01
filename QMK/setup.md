@@ -8,4 +8,7 @@ _please note that this page is mostly for my personal reference when setting up 
 
 ### First setup
 Open QMK MSYS and run ```qmk setup ```. Answer y to all questions. 
-Once that's done, run ```qmk new-keyboard```. Answer all questions with required info _(name, github username, real name)_. Then when asked to pick a base layout enter ```51``` _(none of the above)_
+Once that's done, run ```qmk new-keyboard```. Answer all questions with required info _(name, github username, real name)_. Then when asked to pick a base layout enter ```51``` _(none of the above)_  if you want to start from scratch _(which i'd reccomend to get comfortable with qmk)_. When asked for your microcontroller (MCU), enter the appropriate number _(it's important to get this right)_. I used a pro micro, which has an atmega32u4. Now your setup is good.
+
+### Editing the files
+Naviguate to the qmk firmware folder (in user) 
