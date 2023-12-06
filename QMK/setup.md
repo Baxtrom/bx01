@@ -26,4 +26,4 @@ This is where most of the information about your setup that qmk needs will be. M
 
 ##### Layouts
 
-This part will need to change to match your keyboard as the default is a numpad setup. First, change ```LAYOUT_ortho_4x4``` to something more simple like your keyboard name _(i personally just use ```LAYOUT```)_ then you'll want to input the 'coordinates' for the location of all your keys. It'll help to make a keymap 
+This part will need to change to match your keyboard as the default is a numpad setup. First, change ```LAYOUT_ortho_4x4``` to something more simple like your keyboard name _(i personally just use ```LAYOUT```)_ then you'll want to input the 'coordinates' for the location of all your keys. It'll help to make a keymap _(like i did [here](Layout+Wiring/Wiring_Schematic.png))_. The standard format should be ```{"matrix": [<RowNumber>, <CollumnNumber>], "x": CollumnNumber, "y": RowNumber},```
