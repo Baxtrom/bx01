@@ -86,4 +86,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_?,   KC_?,   KC_?,   KC_TRNS 
   };
 ```
-Next, choose which key you want to use to switch layers. You need to replace it's keycode with ```MO(<layer number>)``` _(like shown in the bottom right key  in the code above)_. This key will now switch to the layer indicated, while you hold the key. There are a few keycodes for changing layers _(to toggle a layer, etc...)_. You can explore the options on the [keycode page](https://github.com/qmk/qmk_firmware/blob/834fb0b1fe47d20aac27eda39f165b96fe4ddaa6/docs/keycodes.md). Once you have decided on a key, you will need to replace the keycode of the matching key _(in the indicated layer)_ with ```KC_TRNS```, which will make it transparent, so that the layer switch key is still registered by the keyboard. You can also use this key to avoid retyping keys that are persistent throughout your layers, as keypresses will register as the next lowest layer that doesn't have ```KC_TRNS```. 
+Next, choose which key you want to use to switch layers. You need to replace it's keycode with ```MO(<layer number>)``` _(like shown in the bottom right key  in the code above)_. This key will now switch to the layer indicated, while you hold the key. There are a few keycodes for changing layers _(to toggle a layer, etc...)_. You can explore the options on the [keycode page](https://github.com/qmk/qmk_firmware/blob/834fb0b1fe47d20aac27eda39f165b96fe4ddaa6/docs/keycodes.md). Once you have decided on a key, you will need to replace the keycode of the matching key _(in the indicated layer)_ with ```KC_TRNS```, which will make it transparent, so that the layer switch key is still registered by the keyboard _(demonstrated above)_. You can also use this key to avoid retyping keys that are persistent throughout your layers, as keypresses will register as the next lowest layer that doesn't have ```KC_TRNS```. You can add as many layers as you want _(up to 15)_, just make sure to place ```KC_TRNS``` "over" the layer keycode on the destination layer. 
+
+### Via Setup (optional)
+Via will allow you to have a visual interface that allows you to remap keys on-the-fly, as well as toggling layout options, programming macros, and controlling lighting. This will save you time editing code and reflashing your board _(which i'll explain later)_ 
+
+First you will need to create a new folder for via under ```\qmk_firmware\keyboards\<keyboard_name>\keymaps\```. Either make a blank folder name "via", where you will need to copy and paste the ```config.h```, ```keymap.c```, ```rules.mk``` files you worked on earlier. The other option is to copy ```keymaps/default```, rename it to "via" and add the other two files. The folder should be organized like this: _(ignore ```via.json```, we'll come back to it in a bit)_
+![image](https://github.com/Baxtrom/bx01/assets/152244482/5537ac34-abde-4679-a838-adea1821b70c)
+
+Now go to rules.mk and add this line ```VIA_ENABLE = yes```. Make sure yes is all lowercase. 
+
+
+
