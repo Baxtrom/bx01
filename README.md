@@ -7,7 +7,7 @@ The layout, case and plate have all been designed by me. The keyboard runs on an
 
 The case has risers for the pro micro and it clicks/locks in place pretty solidly. The plate is 1.5 mm thick (mx switch spec) which allows the switches and the stabilizers to click in. The plate and case attach together with screws to minimize any flex. They were both designed in blender and printed on an Ender 3 in pla at 0.2mm layer height and have pretty good tolerances. I also quickly made some cable combs for easier cable management (see /photos folder). The only part I didn't design is the hot-swap sockets, which were made by Jan Lunge (https://github.com/JanLunge/keyboards/blob/main/hotswap_socket/hotswap_mx__compact.stl) and work great in this project. 
 
-The code is setup to use pins 15, A0, A1, A2, A3 for the collums and pins D7, E6, B4, B5 for rows (see /Layout+Wiring folder for wiring schematic). I reffered to guides by jan lunge and jo scotto on youtube for the wiring. Figuring out QMK from scratch was quite a struggle but youtube was
+The code is setup to use pins 15, A0, A1, A2, A3 for the collums and pins D7, E6, B4, B5 for rows (see /Layout+Wiring folder for wiring schematic). I reffered to guides by jan lunge and jo scotto on youtube for the wiring. Figuring out QMK from scratch was quite a struggle but youtube was of great help and i hope my new guide can also be. 
 
 
 
