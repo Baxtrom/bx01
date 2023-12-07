@@ -26,6 +26,48 @@ This is where most of the information about your setup that qmk needs will be. M
 
 ##### Layouts
 
-This part will need to change to match your keyboard as the default is a numpad setup. First, change ```LAYOUT_ortho_4x4``` to something more simple like your keyboard name _(i personally just use ```LAYOUT```)_ then you'll want to input the 'coordinates' for the location of all your keys. It'll help to make a keymap _(like i did [here](Layout+Wiring/Wiring_Schematic.png))_. The standard format should be ```{"matrix": [<RowNumber>, <CollumnNumber>], "x": CollumnNumber, "y": RowNumber},``` _(Although its counterintuitive, the x and y in the brackets are in the reverse order, like shown)_ 
+This part will need to change to match your keyboard as the default is a numpad setup. First, change ```LAYOUT_ortho_4x4``` to something more simple like your keyboard name _(i personally just use ```LAYOUT```)_ then you'll want to input the "coordinates" for the location of all your keys. It'll help to make a keymap _(like i did [here](Layout+Wiring/Wiring_Schematic.png))_. The standard format should be ```{"matrix": [<RowNumber>, <CollumnNumber>], "x": CollumnNumber, "y": RowNumber},``` _(Although its counterintuitive, the x and y in the brackets are in the reverse order, like shown)_. For example my layout looks like this (it has 5 collumns and 4 rows)
+```
+"LAYOUT": {
+            "layout": [
+
+                //Row 0 (delete this line if you bring this into your code) 
+                {"matrix": [0, 0], "x": 0, "y": 0},
+                {"matrix": [0, 1], "x": 1, "y": 0},
+                {"matrix": [0, 2], "x": 2, "y": 0},
+                {"matrix": [0, 3], "x": 3, "y": 0},
+                {"matrix": [0, 4], "x": 4, "y": 0},
+
+
+                // Row 1 (delete this line if you bring this into your code) 
+                {"matrix": [1, 0], "x": 0, "y": 1},
+                {"matrix": [1, 1], "x": 1, "y": 1},
+                {"matrix": [1, 2], "x": 2, "y": 1},
+                {"matrix": [1, 3], "x": 3, "y": 1},
+                {"matrix": [1, 4], "x": 4, "y": 1},
+
+and so on...
+
+```
 
 #### Keymap.c
+You can locate this file in the ```keymaps``` folder and then ```default``` folder. Any text in green is used as a "comment" _(it's green in VScode, but you can also recognize comments by the slashes before them)_. You can delete these as they wont match your build. You now get to build your base layout. Your file should match this format:
+```
+#include QMK_KEYBOARD_H
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    
+    [0] = <LAYOUT_name>(
+        KC_?,   KC_?,   KC_?,   KC_?,
+        KC_?,   KC_?,   KC_?,   KC_?,
+        KC_?,   KC_?,   KC_?,   KC_?,
+        KC_?,   KC_?,   KC_?,   KC_?
+    )
+};
+```
+This grid needs to match your layout you configured in info.json. Separate the collumns with commas and rows with enter. Make sure the number of keys matches your layout. 
+
+
+##### Layers
+
+
