@@ -2,9 +2,11 @@
 _please note that this page is mostly for my personal reference when setting up qmk for a custom build again, but if it can be of any help feel free to refer to it_
 
 ### Software needed
-- Code editor _(i reccomend VScode)_
+- Code editor _(i reccomend VScode, https://code.visualstudio.com/download)_
 - QMK MSYS _(https://msys.qmk.fm)_
 - QMK toolbox _(https://github.com/qmk/qmk_toolbox/releases)_
+- VIA (optional) _(https://github.com/the-via/releases/releases)_
+_when downloading software from github make sure you choose the latest release and the right file type for your OS (download the .exe for windows)_
 
 ### Ressources 
 - QMK docs _(https://docs.qmk.fm/#/)_
@@ -86,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_?,   KC_?,   KC_?,   KC_TRNS 
   };
 ```
-Next, choose which key you want to use to switch layers. You need to replace it's keycode with ```MO(<layer number>)``` _(like shown in the bottom right key  in the code above)_. This key will now switch to the layer indicated, while you hold the key. There are a few keycodes for changing layers _(to toggle a layer, etc...)_. You can explore the options on the [keycode page](https://github.com/qmk/qmk_firmware/blob/834fb0b1fe47d20aac27eda39f165b96fe4ddaa6/docs/keycodes.md). Once you have decided on a key, you will need to replace the keycode of the matching key _(in the indicated layer)_ with ```KC_TRNS```, which will make it transparent, so that the layer switch key is still registered by the keyboard _(demonstrated above)_. You can also use this key to avoid retyping keys that are persistent throughout your layers, as keypresses will register as the next lowest layer that doesn't have ```KC_TRNS```. You can add as many layers as you want _(up to 15)_, just make sure to place ```KC_TRNS``` "over" the layer keycode on the destination layer. 
+Next, choose which key you want to use to switch layers. You need to replace it's keycode with ```MO(<layer number>)``` _(like shown in the bottom right key  in the code above)_. This key will now switch to the layer indicated, while you hold the key. There are a few keycodes for changing layers _(to toggle a layer, etc...)_. You can explore the options on the [keycode page](https://github.com/qmk/qmk_firmware/blob/834fb0b1fe47d20aac27eda39f165b96fe4ddaa6/docs/keycodes.md). Once you have decided on a key, you will need to replace the keycode of the matching key _(in the indicated layer)_ with ```KC_TRNS```, which will make it transparent, so that the layer switch key is still registered by the keyboard _(demonstrated above)_. You can also use this key to avoid retyping keys that are persistent throughout your layers, as keypresses will register as the next lowest layer that doesn't have ```KC_TRNS```. You can add as many layers as you want _(up to 15)_, just make sure to place ```KC_TRNS``` "over" the layer keycode on the destination layer. After editing, make sure you save all files you changed (In VScode, head into the file menu in the top bar, and press ```Save all```
 
 ### Via Setup (optional)
 Via will allow you to have a visual interface that allows you to remap keys on-the-fly, as well as toggling layout options, programming macros, and controlling lighting. This will save you time editing code and reflashing your board _(which i'll explain later)_ 
@@ -105,7 +107,7 @@ You will now need to create a new file in your code editor, named ```via.json```
     "name": "?",
     "vendorId": "0x?",
     "productId": "0x?",
-    "matrix": {"rows": ?, "cols": ? },
+    "matrix": {"rows": ?, "cols": ? },  //these numbers represent height and width of your keyboard matrix
     "layouts" : {
         "keymap": [
             //PASTE KLE LAYOUT HERE
@@ -113,7 +115,7 @@ You will now need to create a new file in your code editor, named ```via.json```
     }
 }
 ```
-Replace the question marks with the appropriate info. Match what you used in the rest of the setup. Once done, mine looked like this:
+Replace the question marks with the appropriate info_(and delete the comments)_. Match what you used in the rest of the setup. Once done, mine looked like this:
 ```
 {
     "name": "bx01",
@@ -138,6 +140,9 @@ Replace the question marks with the appropriate info. Match what you used in the
     }
 }
 ```
+After editing, make sure you save all files. Now you will need to flash the firmware_(steps are [here]())_. Now open the via app. It's normal for your board to not be recognized at first. Head over to settings and enable ```Show design tab```. The design tab will now appear, open it. Now press the ```Load``` button, and open the ```via.json``` file. Your keyboard should now show up in the configure menu, if it doesnt try unplugging it and plugging it back in after a few second. You can now use the full via software. To configure your board, plenty of ressources can be found online.
 
+### Compiling and flashing firmware
+To "install" your code onto your keyboard you will need to compile and flash it. To compile code, open QMK MSYS. Now enter  ```qmk compile -kb <keyboard_name> -km <keymap>``` _(Enter your keyboard name (specifially it's folder name under ```\qmk_firmware\keyboards\```) and the keymap name, either "default" or "via"(if you followed the via setup)_. For my board it would look like this ```qmk compile -kb bx01 -km via```. Hit enter and wait until the operation completes _(this could take a few minutes, you will know its done once the messages stop appearing and you see ```The firmware size is fine...``` in the last few lines)_. MSYS is built to be clear about any errors if it can't compile the firmware. If you encounter any issues, take the time to read the errors, it will usually indicate almost exact what the problem is. You will also be able to tell where they are. It will first show the problematic file path and name, and then the last 2 pairs of numbers rempresent the line number followed by the character number from left to right. For example you could get this code: ```/keyboard/??/keymaps/default/keymap.c:14:11```. This would mean character 11 on line 14 of the keymap.c file in the default keymap folder, has an error. Once compiling is done, a ```.hex``` file will be created in the ```/qmk_firmware``` folder. Now open the QMK toolbox and press ```Open``` and load the .hex file you just compiled. Now select your MCU _(micro-controller, for example on a pro micro it will be the ATmega32U5)_. Check off ```Auto-flash```. 
 
 
