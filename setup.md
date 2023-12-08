@@ -94,7 +94,50 @@ Via will allow you to have a visual interface that allows you to remap keys on-t
 First you will need to create a new folder for via under ```\qmk_firmware\keyboards\<keyboard_name>\keymaps\```. Either make a blank folder name "via", where you will need to copy and paste the ```config.h```, ```keymap.c```, ```rules.mk``` files you worked on earlier. The other option is to copy ```keymaps/default```, rename it to "via" and add the other two files. The folder should be organized like this: _(ignore ```via.json```, we'll come back to it in a bit)_
 ![image](https://github.com/Baxtrom/bx01/assets/152244482/5537ac34-abde-4679-a838-adea1821b70c)
 
-Now go to rules.mk and add this line ```VIA_ENABLE = yes```. Make sure yes is all lowercase. 
+Now go to rules.mk and add this line ```VIA_ENABLE = yes```. Make sure yes is all lowercase.  Now, you will need to go to [keyboard layout editor] (http://www.keyboard-layout-editor.com). Either load your previously made layout, or make your layout. Once all the keys are placed, you will need to match all the keys with their matrix "coordinates" that you set up earlier _(the ones in the square brackets)_. Place each key's coordinate in the left "top legend". On my board it looked like this:
+![image](https://github.com/Baxtrom/bx01/assets/152244482/fed11210-0028-4e87-886a-35a62165020f)
+Now go to the raw data tab of KLE and copy the code. 
+
+#### via.json
+You will now need to create a new file in your code editor, named ```via.json``` and save it under the ```via``` folder _(like shown previously)_. Now copy this into it:
+```
+{
+    "name": "?",
+    "vendorId": "0x?",
+    "productId": "0x?",
+    "matrix": {"rows": ?, "cols": ? },
+    "layouts" : {
+        "keymap": [
+            //PASTE KLE LAYOUT HERE
+        ]
+    }
+}
+```
+Replace the question marks with the appropriate info. Match what you used in the rest of the setup. Once done, mine looked like this:
+```
+{
+    "name": "bx01",
+    "vendorId": "0x4258",
+    "productId": "0x3031",
+    "matrix": {"rows": 4, "cols": 5 },
+    "layouts" : {
+        "keymap": [
+            ["0,0",{"x":1},"0,2"],
+            [{"y":-0.75,"x":1},"0,1",{"x":1},"0,3"],
+            [{"y":-0.75,"x":4},"0,4"],
+            [{"y":-0.5},"1,0",{"x":1},"1,2"],
+            [{"y":-0.75,"x":1},"1,1",{"x":1},"1,3"],
+            [{"y":-0.75,"x":4},"1,4"],
+            [{"y":-0.5},"2,0",{"x":1},"2,2"],
+            [{"y":-0.75,"x":1},"2,1",{"x":1},"2,3"],
+            [{"y":-0.75,"x":4},"2,4"],
+            [{"y":-0.5},"3,0"],
+            [{"y":-0.5,"x":2.5},"3,2","3,3"],
+            [{"r":-60,"rx":6,"ry":4.5,"y":-1.4,"x":-0.5,"w":2},"3,4"]
+        ]
+    }
+}
+```
 
 
 
