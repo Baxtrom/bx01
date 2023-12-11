@@ -2,7 +2,7 @@
 > [!NOTE]
 > _this page is mostly for my personal reference when setting up qmk for a custom build again, feel free to refer to it but there could be mistakes_
 
-- [Layout, plate and case design] ()
+- [Layout, plate and case design](https://github.com/Baxtrom/bx01/blob/main/setup.md#layout-plate-and-case-design)
 - [Qmk setup](https://github.com/Baxtrom/bx01/blob/main/setup.md#qmk-setup)
 ## Layout, plate and case design
 _this can be done in many ways, this is just the way that worked for me_
