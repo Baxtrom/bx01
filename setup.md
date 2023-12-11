@@ -99,7 +99,9 @@ First you will need to create a new folder for via under ```\qmk_firmware\keyboa
 ![image](https://github.com/Baxtrom/bx01/assets/152244482/5537ac34-abde-4679-a838-adea1821b70c)
 
 Now go to rules.mk and add this line ```VIA_ENABLE = yes```. Make sure yes is all lowercase.  Now, you will need to go to [keyboard layout editor] (http://www.keyboard-layout-editor.com). Either load your previously made layout, or make your layout. Once all the keys are placed, you will need to match all the keys with their matrix "coordinates" that you set up earlier _(the ones in the square brackets)_. Place each key's coordinate in the left "top legend". On my board it looked like this:
+
 ![image](https://github.com/Baxtrom/bx01/assets/152244482/fed11210-0028-4e87-886a-35a62165020f)
+
 Now go to the raw data tab of KLE and copy the code. 
 
 #### via.json
