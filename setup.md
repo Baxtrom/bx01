@@ -1,5 +1,14 @@
+# Full building process
+- Layout, plate and case design.
+- [Qmk setup]()
+
+
+
+
 ## Qmk setup
-_please note that this page is mostly for my personal reference when setting up qmk for a custom build again, but if it can be of any help feel free to refer to it_
+> [!NOTE]
+> _this page is mostly for my personal reference when setting up qmk for a custom build again, but if it can be of any help feel free to refer to it_
+
 
 ### Software needed
 - Code editor _(i reccomend VScode, https://code.visualstudio.com/download)_
