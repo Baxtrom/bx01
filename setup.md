@@ -1,14 +1,21 @@
 # Full building process
-- Layout, plate and case design.
-- [Qmk setup]()
+> [!NOTE]
+> _this page is mostly for my personal reference when setting up qmk for a custom build again, feel free to refer to it but there could be mistakes_
 
-
+- [Layout, plate and case design] ()
+- [Qmk setup](https://github.com/Baxtrom/bx01/blob/main/setup.md#qmk-setup)
+## Layout, plate and case design
+_this can be done in many ways, this is just the way that worked for me_
+### Tools needed
+- Keyboard Layout Editor _(http://www.keyboard-layout-editor.com)_
+- Plate and case buider _(http://builder.swillkb.com)_
+- CAD software. [Fusion 360](https://www.autodesk.com/products/fusion-360/) would work best but im more comfortable with [Blender](https://www.blender.org/download/) and it does the job. 
+### Layout 
+I started by researching popular layouts, and found one to use as a staring point. In my case i landed on the cantor by beekeeb. I started by recreating the general layout in KLe
 
 
 ## Qmk setup
-> [!NOTE]
-> _this page is mostly for my personal reference when setting up qmk for a custom build again, but if it can be of any help feel free to refer to it_
-
+_Here are the steps i followed to setup my keyboard from start to finish_
 
 ### Software needed
 - Code editor _(i reccomend VScode, https://code.visualstudio.com/download)_
