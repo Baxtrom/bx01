@@ -1,5 +1,5 @@
 > [!NOTE]
-> I'm still cleaning up files and completing the guide (as of december 12th 2023). So any missing files should be added shortly
+> I'm still updating files and completing the guide (as of december 12th 2023). So any missing files should be added shortly
 # bx01
 My first attempt at building a hand-wired, custom, 3d printed gaming keyboard/macro pad with hotswap 
 
