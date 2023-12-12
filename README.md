@@ -1,5 +1,8 @@
+> [!NOTE]
+> I'm still cleaning up files and completing the guide (as of december 12th 2023). So any missing files should be added shortly
 # bx01
 My first attempt at building a hand-wired, custom, 3d printed gaming keyboard/macro pad with hotswap 
+
 
 ![Fully_Assembled2](https://github.com/Baxtrom/bx01/assets/152244482/e0b6d013-c037-442b-86c9-37bb19da8384)
 
