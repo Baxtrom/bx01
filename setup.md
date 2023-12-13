@@ -11,7 +11,7 @@ _this can be done in many ways, this is just the way that worked for me_
 - Plate and case buider _(http://builder.swillkb.com)_
 - CAD software. [Fusion 360](https://www.autodesk.com/products/fusion-360/) would work best but im more comfortable with [Blender](https://www.blender.org/download/) and it does the job. 
 ### Layout 
-I started by researching popular layouts, and found one to use as a staring point. In my case i landed on the cantor by beekeeb. I started by recreating the general layout in KLe
+I started by researching popular layouts, and found one to use as a staring point. In my case i landed on the cantor by beekeeb. I started by recreating the general layout in KLE. To get a better idea of my needs/the number of keys i was happy with, i filled out the legends with a vague plan of each key's functions throughout the layers. I then copy pasted the KLE raw data code into the [plate generator](http://builder.swillkb.com)and filled out info like the switch and stabilizer types.
 
 
 ## Qmk setup
